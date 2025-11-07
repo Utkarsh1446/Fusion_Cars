@@ -102,14 +102,14 @@ export default function Inventory() {
       {/* Page Header */}
       <section className="bg-primary-navy text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Inventory</h1>
-          <p className="text-xl text-gray-300">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Our Inventory</h1>
+          <p className="text-xl text-neutral-light">
             Explore our wide selection of premium vehicles tailored to your needs
           </p>
         </div>
       </section>
 
-      <div className="min-h-screen bg-neutral-light py-12">
+      <div className="min-h-screen bg-primary-black py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar Filters */}
@@ -119,9 +119,9 @@ export default function Inventory() {
               animate={{ x: 0, opacity: 1 }}
               aria-label="Filters"
             >
-              <div className="bg-white rounded-lg p-6 shadow-lg">
+              <div className="bg-primary-dark rounded-lg p-6 shadow-lg">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-primary-navy flex items-center gap-2">
+                  <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                     <Filter className="w-5 h-5" />
                     Filters
                   </h2>
@@ -136,7 +136,7 @@ export default function Inventory() {
 
                 {/* Search */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-primary-navy mb-2">
+                  <label className="block text-sm font-semibold text-accent-silver mb-2">
                     Search
                   </label>
                   <input
@@ -144,20 +144,20 @@ export default function Inventory() {
                     placeholder="Car name or brand..."
                     value={filters.search}
                     onChange={(e) => handleFilterChange('search', e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                    className="w-full px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue placeholder-accent-stone"
                     aria-label="Search cars"
                   />
                 </div>
 
                 {/* Brand Filter */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-primary-navy mb-2">
+                  <label className="block text-sm font-semibold text-accent-silver mb-2">
                     Brand
                   </label>
                   <select
                     value={filters.brand}
                     onChange={(e) => handleFilterChange('brand', e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                    className="w-full px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
                     aria-label="Filter by brand"
                   >
                     <option value="">All Brands</option>
@@ -171,13 +171,13 @@ export default function Inventory() {
 
                 {/* Fuel Type Filter */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-primary-navy mb-2">
+                  <label className="block text-sm font-semibold text-accent-silver mb-2">
                     Fuel Type
                   </label>
                   <select
                     value={filters.fuelType}
                     onChange={(e) => handleFilterChange('fuelType', e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                    className="w-full px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
                     aria-label="Filter by fuel type"
                   >
                     <option value="">All Types</option>
@@ -191,13 +191,13 @@ export default function Inventory() {
 
                 {/* Transmission Filter */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-primary-navy mb-2">
+                  <label className="block text-sm font-semibold text-accent-silver mb-2">
                     Transmission
                   </label>
                   <select
                     value={filters.transmission}
                     onChange={(e) => handleFilterChange('transmission', e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                    className="w-full px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
                     aria-label="Filter by transmission"
                   >
                     <option value="">All Types</option>
@@ -211,7 +211,7 @@ export default function Inventory() {
 
                 {/* Price Range */}
                 <div className="mb-6">
-                  <label className="block text-sm font-semibold text-primary-navy mb-2">
+                  <label className="block text-sm font-semibold text-accent-silver mb-2">
                     Price Range
                   </label>
                   <div className="flex gap-2">
@@ -225,7 +225,7 @@ export default function Inventory() {
                           filters.priceRange[1],
                         ])
                       }
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                      className="flex-1 px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue placeholder-accent-stone"
                       aria-label="Minimum price"
                     />
                     <input
@@ -238,7 +238,7 @@ export default function Inventory() {
                           Number(e.target.value),
                         ])
                       }
-                      className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                      className="flex-1 px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue placeholder-accent-stone"
                       aria-label="Maximum price"
                     />
                   </div>
@@ -249,7 +249,7 @@ export default function Inventory() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={resetFilters}
-                  className="w-full bg-accent-blue text-white py-2 rounded-lg font-semibold hover:bg-accent-orange transition-colors duration-300"
+                  className="w-full border-2 border-accent-silver text-accent-silver py-3 rounded-lg font-bold hover:bg-accent-silver hover:text-primary-black transition-all duration-300"
                   aria-label="Reset filters"
                 >
                   Reset Filters
@@ -261,14 +261,14 @@ export default function Inventory() {
             <div className="lg:col-span-3">
               {/* Top Bar */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-                <p className="text-lg font-semibold text-primary-navy">
+                <p className="text-lg font-semibold text-white">
                   Showing {filteredCars.length} vehicles
                 </p>
 
                 <div className="flex gap-4 w-full sm:w-auto">
                   <button
                     onClick={() => setShowFilters(!showFilters)}
-                    className="lg:hidden bg-white text-primary-navy px-4 py-2 rounded-lg border border-gray-300 font-semibold hover:bg-neutral-light"
+                    className="lg:hidden bg-primary-dark text-white px-4 py-2 rounded-lg border border-accent-charcoal font-semibold hover:bg-primary-charcoal"
                     aria-label="Toggle filters"
                   >
                     <Filter className="w-5 h-5 inline mr-2" />
@@ -278,7 +278,7 @@ export default function Inventory() {
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                    className="px-4 py-2 bg-primary-dark text-white border border-accent-charcoal rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue"
                     aria-label="Sort results"
                   >
                     <option value="featured">Featured</option>
@@ -311,15 +311,16 @@ export default function Inventory() {
                 </motion.div>
               ) : (
                 <motion.div
-                  className="text-center py-12 bg-white rounded-lg"
+                  className="text-center py-12 bg-primary-dark rounded-lg"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
-                  <p className="text-xl text-gray-600 mb-4">No vehicles match your criteria</p>
+                  <p className="text-xl text-accent-stone mb-4">No vehicles match your criteria</p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={resetFilters}
-                    className="bg-accent-blue text-white px-6 py-2 rounded-lg font-semibold hover:bg-accent-orange transition-colors"
+                    className="border-2 border-accent-silver text-accent-silver px-6 py-3 rounded-lg font-bold hover:bg-accent-silver hover:text-primary-black transition-all duration-300"
                   >
                     Clear Filters
                   </motion.button>

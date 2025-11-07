@@ -5,17 +5,21 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         // Primary colors - Black & Grayscale Luxury Theme
         primary: {
+          navy: '#0b132b',        // Primary navy blue for backgrounds
           black: '#0A0A0A',       // Pure black for primary backgrounds
           dark: '#1A1A1A',        // Dark gray for secondary backgrounds
           charcoal: '#2A2A2A',    // Medium dark gray for tertiary backgrounds
         },
-        // Accent colors - Grayscale with Silver
+        // Accent colors - Blue & Orange with Grayscale
         accent: {
+          blue: '#007bff',        // Primary accent blue
+          orange: '#ff6700',      // Secondary accent orange
           silver: '#D1D5DB',      // Silver accent (primary highlights)
           platinum: '#E5E7EB',    // Platinum for secondary accents
           charcoal: '#374151',    // Dark gray for text accents

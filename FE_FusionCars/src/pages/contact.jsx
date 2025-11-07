@@ -135,15 +135,15 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="bg-primary-navy text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Get in Touch</h1>
-          <p className="text-xl text-gray-300">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white">Get in Touch</h1>
+          <p className="text-xl text-neutral-light">
             We're here to help and answer any question you might have
           </p>
         </div>
       </section>
 
       {/* Contact Methods */}
-      <section className="py-16 bg-white" aria-label="Contact methods">
+      <section className="py-16 bg-primary-black" aria-label="Contact methods">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
@@ -157,18 +157,18 @@ export default function Contact() {
               return (
                 <motion.div
                   key={index}
-                  className="bg-neutral-light rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300"
+                  className="bg-primary-dark rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300"
                   variants={itemVariants}
                   whileHover={{ y: -5 }}
                 >
                   <Icon className="w-12 h-12 text-accent-blue mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-primary-navy mb-3">{method.title}</h3>
+                  <h3 className="text-xl font-bold text-white mb-3">{method.title}</h3>
                   {method.details.map((detail, idx) => (
-                    <p key={idx} className="text-sm font-semibold text-primary-navy">
+                    <p key={idx} className="text-sm font-semibold text-accent-silver">
                       {detail}
                     </p>
                   ))}
-                  <p className="text-xs text-gray-600 mt-2">{method.description}</p>
+                  <p className="text-xs text-accent-stone mt-2">{method.description}</p>
                 </motion.div>
               );
             })}
@@ -177,17 +177,17 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="py-16 bg-neutral-light" aria-label="Contact form section">
+      <section className="py-16 bg-primary-dark" aria-label="Contact form section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <motion.div
-              className="bg-white rounded-lg p-8 shadow-lg"
+              className="bg-primary-black rounded-lg p-8 shadow-lg"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-primary-navy mb-6">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-white mb-6">Send us a Message</h2>
 
               {submitted && (
                 <motion.div
@@ -207,7 +207,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-semibold text-primary-navy mb-2"
+                    className="block text-sm font-semibold text-accent-silver mb-2"
                   >
                     Full Name *
                   </label>
@@ -217,8 +217,8 @@ export default function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue ${
-                      errors.name ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-3 bg-primary-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue text-white ${
+                      errors.name ? 'border-red-500' : 'border-accent-charcoal'
                     }`}
                     aria-label="Full name"
                     aria-invalid={!!errors.name}
@@ -235,7 +235,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-semibold text-primary-navy mb-2"
+                    className="block text-sm font-semibold text-accent-silver mb-2"
                   >
                     Email Address *
                   </label>
@@ -245,8 +245,8 @@ export default function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue ${
-                      errors.email ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-3 bg-primary-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue text-white ${
+                      errors.email ? 'border-red-500' : 'border-accent-charcoal'
                     }`}
                     aria-label="Email address"
                     aria-invalid={!!errors.email}
@@ -263,7 +263,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-semibold text-primary-navy mb-2"
+                    className="block text-sm font-semibold text-accent-silver mb-2"
                   >
                     Phone Number *
                   </label>
@@ -273,8 +273,8 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue ${
-                      errors.phone ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-3 bg-primary-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue text-white ${
+                      errors.phone ? 'border-red-500' : 'border-accent-charcoal'
                     }`}
                     aria-label="Phone number"
                     aria-invalid={!!errors.phone}
@@ -291,7 +291,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-semibold text-primary-navy mb-2"
+                    className="block text-sm font-semibold text-accent-silver mb-2"
                   >
                     Subject *
                   </label>
@@ -300,8 +300,8 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue ${
-                      errors.subject ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-3 bg-primary-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue text-white ${
+                      errors.subject ? 'border-red-500' : 'border-accent-charcoal'
                     }`}
                     aria-label="Subject"
                     aria-invalid={!!errors.subject}
@@ -325,7 +325,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-semibold text-primary-navy mb-2"
+                    className="block text-sm font-semibold text-accent-silver mb-2"
                   >
                     Message *
                   </label>
@@ -335,8 +335,8 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows="5"
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue resize-none ${
-                      errors.message ? 'border-red-500' : 'border-gray-300'
+                    className={`w-full px-4 py-3 bg-primary-black border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue text-white resize-none ${
+                      errors.message ? 'border-red-500' : 'border-accent-charcoal'
                     }`}
                     aria-label="Message"
                     aria-invalid={!!errors.message}
@@ -354,7 +354,7 @@ export default function Contact() {
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full bg-accent-blue text-white py-3 rounded-lg font-bold text-lg hover:bg-accent-orange transition-colors duration-300"
+                  className="w-full bg-accent-silver text-primary-black py-3 rounded-lg font-bold text-lg hover:bg-neutral-light transition-all duration-300 shadow-md"
                   aria-label="Send message"
                 >
                   Send Message
@@ -370,13 +370,13 @@ export default function Contact() {
               viewport={{ once: true }}
             >
               {/* Map Placeholder */}
-              <div className="rounded-lg overflow-hidden shadow-lg h-96 bg-neutral-light flex items-center justify-center">
+              <div className="rounded-lg overflow-hidden shadow-lg h-96 bg-primary-dark flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-12 h-12 text-accent-blue mx-auto mb-4" />
-                  <p className="text-gray-600">
+                  <p className="text-accent-stone">
                     Interactive map would be displayed here
                   </p>
-                  <p className="text-sm text-gray-500 mt-2">
+                  <p className="text-sm text-accent-silver mt-2">
                     123 Motors Avenue, Tech City, India 560001
                   </p>
                 </div>
@@ -384,32 +384,32 @@ export default function Contact() {
 
               {/* Additional Info */}
               <motion.div
-                className="bg-white rounded-lg p-8 shadow-lg"
+                className="bg-primary-black rounded-lg p-8 shadow-lg"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold text-primary-navy mb-4">Why Contact Us?</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Why Contact Us?</h3>
                 <ul className="space-y-3">
                   <li className="flex gap-2">
                     <span className="text-accent-blue font-bold">✓</span>
-                    <span className="text-gray-600">Expert advice on vehicle selection</span>
+                    <span className="text-accent-stone">Expert advice on vehicle selection</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-accent-blue font-bold">✓</span>
-                    <span className="text-gray-600">Test drive scheduling</span>
+                    <span className="text-accent-stone">Test drive scheduling</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-accent-blue font-bold">✓</span>
-                    <span className="text-gray-600">Financing and payment options</span>
+                    <span className="text-accent-stone">Financing and payment options</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-accent-blue font-bold">✓</span>
-                    <span className="text-gray-600">Trade-in valuations</span>
+                    <span className="text-accent-stone">Trade-in valuations</span>
                   </li>
                   <li className="flex gap-2">
                     <span className="text-accent-blue font-bold">✓</span>
-                    <span className="text-gray-600">After-sales support</span>
+                    <span className="text-accent-stone">After-sales support</span>
                   </li>
                 </ul>
               </motion.div>

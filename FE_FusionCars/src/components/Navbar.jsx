@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 /**
  * Navbar Component - IMPROVED VERSION
@@ -26,21 +27,21 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-primary-black text-white shadow-xl" role="navigation" aria-label="Main navigation">
+    <nav className="sticky top-0 z-50 bg-white dark:bg-primary-black text-gray-900 dark:text-white shadow-xl transition-colors duration-300" role="navigation" aria-label="Main navigation">
       {/* Top Bar - Contact Info */}
-      <div className="bg-primary-dark hidden sm:block border-b border-accent-silver/30">
+      <div className="bg-neutral-light dark:bg-primary-dark hidden sm:block border-b border-gray-200 dark:border-accent-silver/30 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center text-sm">
-          <div className="flex gap-6 text-gray-400">
+          <div className="flex gap-6 text-gray-600 dark:text-gray-400">
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-accent-silver" />
+              <Phone className="w-4 h-4 text-accent-orange dark:text-accent-silver" />
               <span>+91 (555) 123-4567</span>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-accent-silver" />
+              <MapPin className="w-4 h-4 text-accent-orange dark:text-accent-silver" />
               <span>123 Motors Avenue, Tech City</span>
             </div>
           </div>
-          <div className="text-accent-silver font-semibold">Open: Mon-Sat 9AM-6PM</div>
+          <div className="text-accent-orange dark:text-accent-silver font-semibold">Open: Mon-Sat 9AM-6PM</div>
         </div>
       </div>
 
@@ -53,10 +54,10 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               className="font-bold text-2xl flex items-center gap-2"
             >
-              <div className="w-10 h-10 bg-accent-silver rounded-lg flex items-center justify-center">
-                <span className="text-primary-black font-bold">FC</span>
+              <div className="w-10 h-10 bg-accent-orange dark:bg-accent-silver rounded-lg flex items-center justify-center transition-colors duration-300">
+                <span className="text-white dark:text-primary-black font-bold transition-colors duration-300">FC</span>
               </div>
-              <span className="hidden sm:inline text-white">Fusion Cars</span>
+              <span className="hidden sm:inline text-gray-900 dark:text-white transition-colors duration-300">Fusion Cars</span>
             </motion.div>
           </Link>
 
@@ -66,19 +67,21 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-accent-silver transition-colors duration-300 font-medium text-sm"
+                className="text-gray-900 dark:text-white hover:text-accent-orange dark:hover:text-accent-silver transition-colors duration-300 font-medium text-sm"
               >
                 {link.name}
               </Link>
             ))}
           </div>
 
-          {/* Right Section - CTA Button */}
+          {/* Right Section - CTA Button & Theme Toggle */}
           <div className="flex items-center gap-4">
+            <ThemeToggle />
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hidden sm:block bg-accent-silver hover:bg-neutral-light text-primary-black px-6 py-2 rounded-lg font-bold text-sm transition-colors duration-300 shadow-lg"
+              className="hidden sm:block bg-accent-orange dark:bg-accent-silver hover:bg-orange-700 dark:hover:bg-gray-300 text-white dark:text-primary-black px-6 py-2 rounded-lg font-bold text-sm transition-colors duration-300 shadow-lg"
               aria-label="Book a test drive"
             >
               Book Test Drive
@@ -87,7 +90,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-2"
+              className="md:hidden p-2 text-gray-900 dark:text-white transition-colors duration-300"
               aria-label="Toggle navigation menu"
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
@@ -108,13 +111,13 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             id="mobile-menu"
-            className="md:hidden pb-6 border-t border-accent-charcoal space-y-3"
+            className="md:hidden pb-6 border-t border-gray-200 dark:border-accent-charcoal space-y-3 transition-colors duration-300"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="block py-2 text-white hover:text-accent-silver transition-colors font-medium"
+                className="block py-2 text-gray-900 dark:text-white hover:text-accent-orange dark:hover:text-accent-silver transition-colors font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -123,7 +126,7 @@ export default function Navbar() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-accent-silver text-primary-black px-6 py-3 rounded-lg font-semibold hover:bg-neutral-light transition-colors mt-4"
+              className="w-full bg-accent-orange dark:bg-accent-silver text-white dark:text-primary-black px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 dark:hover:bg-gray-300 transition-colors mt-4"
               aria-label="Book a test drive from mobile menu"
             >
               Book Test Drive

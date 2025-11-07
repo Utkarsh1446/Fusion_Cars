@@ -76,7 +76,7 @@ export default function Testimonials() {
           <Star
             key={i}
             className={`w-4 h-4 ${
-              i < Math.floor(rating) ? 'fill-accent-red text-accent-red' : 'text-gray-600'
+              i < Math.floor(rating) ? 'fill-accent-silver text-accent-silver' : 'text-accent-charcoal'
             }`}
             aria-hidden="true"
           />
@@ -86,7 +86,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-16 bg-primary-navy" aria-label="Customer testimonials">
+    <section className="py-16 bg-primary-black" aria-label="Customer testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -114,7 +114,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <motion.article
               key={testimonial.id}
-              className="bg-neutral-gray rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700/50"
+              className="bg-primary-charcoal rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-accent-charcoal"
               variants={itemVariants}
               whileHover={{ y: -5 }}
             >
@@ -122,7 +122,7 @@ export default function Testimonials() {
               <div className="mb-4">{renderStars(testimonial.rating)}</div>
 
               {/* Review Text */}
-              <p className="text-gray-300 mb-6 line-clamp-4 leading-relaxed">
+              <p className="text-accent-platinum mb-6 line-clamp-4 leading-relaxed">
                 "{testimonial.content}"
               </p>
 
@@ -131,12 +131,12 @@ export default function Testimonials() {
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover border border-accent-red/30"
+                  className="w-12 h-12 rounded-full object-cover border border-accent-silver/30"
                   loading="lazy"
                 />
                 <div>
                   <p className="font-bold text-white">{testimonial.name}</p>
-                  <p className="text-sm text-gray-400">{testimonial.role}</p>
+                  <p className="text-sm text-accent-stone">{testimonial.role}</p>
                 </div>
               </div>
             </motion.article>
@@ -145,17 +145,17 @@ export default function Testimonials() {
 
         {/* CTA Section */}
         <motion.div
-          className="mt-16 bg-gradient-to-r from-primary-charcoal to-primary-dark text-white rounded-lg p-8 text-center border border-accent-red/20"
+          className="mt-16 bg-gradient-to-r from-primary-dark to-primary-charcoal text-white rounded-lg p-8 text-center border border-accent-silver/20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold mb-4">Join Thousands of Satisfied Customers</h3>
-          <p className="mb-6 text-gray-300">Experience the Fusion Cars difference today</p>
+          <p className="mb-6 text-accent-stone">Experience the Fusion Cars difference today</p>
           <motion.button
-            whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(230, 57, 70, 0.3)' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(209, 213, 219, 0.3)' }}
             whileTap={{ scale: 0.95 }}
-            className="bg-accent-red text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold transition-colors duration-300 shadow-lg"
+            className="bg-accent-silver text-primary-black px-8 py-3 rounded-lg font-semibold hover:bg-neutral-light transition-colors duration-300 shadow-lg"
             aria-label="Book a test drive now"
           >
             Book Test Drive Now

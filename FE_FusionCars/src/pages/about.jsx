@@ -80,15 +80,15 @@ export default function About() {
       {/* Hero Section */}
       <section className="bg-primary-navy text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">About Fusion Cars</h1>
-          <p className="text-xl text-gray-300">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-white">About Fusion Cars</h1>
+          <p className="text-xl text-neutral-light">
             Your trusted partner in premium automotive excellence
           </p>
         </div>
       </section>
 
       {/* Story Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-primary-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -109,17 +109,17 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl font-bold text-primary-navy mb-6">Our Story</h2>
-              <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+              <h2 className="text-4xl font-bold text-white mb-6">Our Story</h2>
+              <p className="text-lg text-accent-stone mb-4 leading-relaxed">
                 Founded in 1999, Fusion Cars began with a simple vision: to provide premium vehicles
                 and exceptional service to customers who appreciate quality and reliability.
               </p>
-              <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+              <p className="text-lg text-accent-stone mb-4 leading-relaxed">
                 Over 25 years, we have grown from a small dealership to one of the most trusted
                 names in the automotive industry. Our success is built on trust, transparency, and
                 genuine care for our customers.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-accent-stone leading-relaxed">
                 Today, we continue to innovate and expand our offerings while maintaining the core
                 values that made us successful. We're not just selling cars; we're building
                 relationships.
@@ -130,7 +130,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-neutral-light">
+      <section className="py-16 bg-primary-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 gap-12"
@@ -140,11 +140,11 @@ export default function About() {
             viewport={{ once: true }}
           >
             <motion.div
-              className="bg-white rounded-lg p-8 shadow-lg"
+              className="bg-primary-black rounded-lg p-8 shadow-lg"
               variants={itemVariants}
             >
-              <h3 className="text-2xl font-bold text-primary-navy mb-4">Our Mission</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
+              <p className="text-accent-stone leading-relaxed">
                 To deliver premium vehicles and exceptional service that exceed customer expectations,
                 ensuring every client experiences luxury, reliability, and trust in their automotive
                 journey.
@@ -152,11 +152,11 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              className="bg-white rounded-lg p-8 shadow-lg"
+              className="bg-primary-black rounded-lg p-8 shadow-lg"
               variants={itemVariants}
             >
-              <h3 className="text-2xl font-bold text-primary-navy mb-4">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
+              <p className="text-accent-stone leading-relaxed">
                 To be the leading premium vehicle dealership, recognized for innovation, customer
                 satisfaction, and integrity. We envision a future where quality vehicles and excellent
                 service are accessible to everyone.
@@ -167,7 +167,7 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 bg-white" aria-label="Our core values">
+      <section className="py-16 bg-primary-black" aria-label="Our core values">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -175,8 +175,8 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-primary-navy mb-4">Our Core Values</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">Our Core Values</h2>
+            <p className="text-xl text-accent-stone max-w-2xl mx-auto">
               These principles guide everything we do
             </p>
           </motion.div>
@@ -193,13 +193,13 @@ export default function About() {
               return (
                 <motion.div
                   key={index}
-                  className="bg-neutral-light rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300"
+                  className="bg-primary-dark rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300"
                   variants={itemVariants}
                   whileHover={{ y: -5 }}
                 >
                   <Icon className="w-12 h-12 text-accent-blue mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-primary-navy mb-3">{value.title}</h3>
-                  <p className="text-gray-600">{value.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
+                  <p className="text-accent-stone">{value.description}</p>
                 </motion.div>
               );
             })}
@@ -208,7 +208,7 @@ export default function About() {
       </section>
 
       {/* Statistics */}
-      <section className="py-16 bg-primary-navy text-white" aria-label="Company statistics">
+      <section className="py-16 bg-primary-charcoal text-white" aria-label="Company statistics">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
@@ -220,7 +220,7 @@ export default function About() {
             {stats.map((stat, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <p className="text-4xl md:text-5xl font-bold text-accent-blue mb-2">{stat.number}</p>
-                <p className="text-lg text-gray-300">{stat.label}</p>
+                <p className="text-lg text-accent-stone">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -228,7 +228,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-white" aria-label="Our team">
+      <section className="py-16 bg-primary-black" aria-label="Our team">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -236,8 +236,8 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-primary-navy mb-4">Meet Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-white mb-4">Meet Our Team</h2>
+            <p className="text-xl text-accent-stone max-w-2xl mx-auto">
               Dedicated professionals committed to your success
             </p>
           </motion.div>
@@ -266,8 +266,8 @@ export default function About() {
                   className="w-48 h-48 rounded-lg mx-auto mb-4 object-cover shadow-lg"
                   loading="lazy"
                 />
-                <h3 className="text-xl font-bold text-primary-navy">{member.name}</h3>
-                <p className="text-gray-600">{member.role}</p>
+                <h3 className="text-xl font-bold text-white">{member.name}</h3>
+                <p className="text-accent-stone">{member.role}</p>
               </motion.div>
             ))}
           </motion.div>

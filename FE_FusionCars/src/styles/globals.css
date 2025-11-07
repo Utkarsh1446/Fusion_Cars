@@ -4,16 +4,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Root Variables */
+/* Root Variables - Light Theme (Default) */
 :root {
+  /* Primary Colors */
+  --color-primary-navy: #0b132b;
+  --color-primary-charcoal: #1c1c1e;
+
+  /* Accent Colors */
+  --color-accent-blue: #007bff;
+  --color-accent-orange: #ff6700;
+
+  /* Neutral Colors */
+  --color-neutral-light: #f5f5f5;
+  --color-white: #ffffff;
+
+  /* Background & Text */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f3f4f6;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #6b7280;
+  --color-border: #e5e7eb;
+
+  scroll-behavior: smooth;
+}
+
+/* Dark Theme Variables */
+html.dark {
+  /* Keep primary accent colors same */
   --color-primary-navy: #0b132b;
   --color-primary-charcoal: #1c1c1e;
   --color-accent-blue: #007bff;
   --color-accent-orange: #ff6700;
-  --color-neutral-light: #f5f5f5;
-  --color-white: #ffffff;
 
-  scroll-behavior: smooth;
+  /* Override neutral colors for dark theme */
+  --color-neutral-light: #1f2937;
+  --color-white: #0a0a0a;
+
+  /* Dark theme background & text */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #1a1a1a;
+  --color-text-primary: #f3f4f6;
+  --color-text-secondary: #d1d5db;
+  --color-border: #374151;
 }
 
 /* Base Styles */
@@ -29,9 +61,10 @@ html {
 
 body {
   font-family: 'Poppins', 'Inter', sans-serif;
-  color: #333;
-  background-color: #ffffff;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Typography */

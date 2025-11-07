@@ -54,22 +54,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-primary-navy text-white py-16" role="contentinfo">
+    <footer className="bg-primary-black text-white py-16" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter Section */}
         <motion.div
-          className="mb-12 pb-12 border-b border-gray-700"
+          className="mb-12 pb-12 border-b border-accent-charcoal"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
-          <p className="text-gray-400 mb-6">Subscribe to get updates on new arrivals and special offers</p>
+          <p className="text-accent-stone mb-6">Subscribe to get updates on new arrivals and special offers</p>
           <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-6 py-3 rounded-lg text-primary-navy focus:outline-none focus:ring-2 focus:ring-accent-red"
+              className="flex-1 px-6 py-3 rounded-lg text-primary-black focus:outline-none focus:ring-2 focus:ring-accent-silver"
               aria-label="Email address for newsletter subscription"
               required
             />
@@ -77,7 +77,7 @@ export default function Footer() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="bg-accent-red text-white px-8 py-3 rounded-lg font-semibold hover:bg-accent-gold transition-colors duration-300 shadow-lg"
+              className="bg-accent-silver text-primary-black px-8 py-3 rounded-lg font-semibold hover:bg-neutral-light transition-colors duration-300 shadow-lg"
               aria-label="Subscribe to newsletter"
             >
               Subscribe
@@ -94,12 +94,12 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h4 className="text-xl font-bold mb-6 flex items-center gap-2">
-              <div className="w-10 h-10 bg-accent-red rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">FC</span>
+              <div className="w-10 h-10 bg-accent-silver rounded-lg flex items-center justify-center">
+                <span className="text-primary-black font-bold">FC</span>
               </div>
               Fusion Cars
             </h4>
-            <p className="text-gray-400 mb-6">
+            <p className="text-accent-stone mb-6">
               Your trusted partner for premium vehicles and exceptional service.
             </p>
 
@@ -111,7 +111,7 @@ export default function Footer() {
                   <motion.a
                     key={social.label}
                     href={social.href}
-                    className="text-gray-400 hover:text-accent-red transition-colors duration-300"
+                    className="text-accent-stone hover:text-accent-silver transition-colors duration-300"
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
@@ -137,7 +137,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-accent-red transition-colors duration-300"
+                      className="text-accent-stone hover:text-accent-silver transition-colors duration-300"
                     >
                       {link.name}
                     </Link>
@@ -156,22 +156,22 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6">Contact Us</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-accent-red mt-1 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-accent-silver mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-400">+91 (555) 123-4567</p>
-                  <p className="text-gray-400">+91 (555) 987-6543</p>
+                  <p className="text-accent-stone">+91 (555) 123-4567</p>
+                  <p className="text-accent-stone">+91 (555) 987-6543</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-accent-red mt-1 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-accent-silver mt-1 flex-shrink-0" />
                 <div>
-                  <p className="text-gray-400">hello@fusioncars.in</p>
-                  <p className="text-gray-400">support@fusioncars.in</p>
+                  <p className="text-accent-stone">hello@fusioncars.in</p>
+                  <p className="text-accent-stone">support@fusioncars.in</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent-red mt-1 flex-shrink-0" />
-                <p className="text-gray-400">123 Motors Avenue, Tech City, India 560001</p>
+                <MapPin className="w-5 h-5 text-accent-silver mt-1 flex-shrink-0" />
+                <p className="text-accent-stone">123 Motors Avenue, Tech City, India 560001</p>
               </div>
             </div>
           </motion.div>
@@ -179,23 +179,23 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <motion.div
-          className="border-t border-gray-700 pt-8"
+          className="border-t border-accent-charcoal pt-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+            <p className="text-accent-stone text-sm">
               © {currentYear} Fusion Cars. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <Link href="#" className="text-gray-400 hover:text-accent-red transition-colors">
+              <Link href="#" className="text-accent-stone hover:text-accent-silver transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-accent-red transition-colors">
+              <Link href="#" className="text-accent-stone hover:text-accent-silver transition-colors">
                 Terms of Service
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-accent-red transition-colors">
+              <Link href="#" className="text-accent-stone hover:text-accent-silver transition-colors">
                 Cookie Policy
               </Link>
             </div>

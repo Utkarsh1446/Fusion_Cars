@@ -1,13 +1,14 @@
 import '../styles/globals.css';
 import { useEffect } from 'react';
+import { ThemeProvider } from '../contexts/ThemeContext';
 
 /**
  * Next.js App Component
  *
  * Global configuration for the application:
  * - Global styles
+ * - Theme provider
  * - Head management
- * - Analytics (optional)
  * - Layout wrappers
  */
 function MyApp({ Component, pageProps }) {
@@ -17,10 +18,10 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <ThemeProvider>
       {/* Global Page Title and Meta */}
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }
 

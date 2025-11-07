@@ -148,20 +148,20 @@ export default function Hero() {
 
             {/* Trust Indicators - Key Metrics */}
             <motion.div
-              className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-700"
+              className="grid grid-cols-3 gap-6 pt-8 border-t border-accent-charcoal"
               variants={itemVariants}
             >
               <div className="text-center">
-                <p className="text-3xl font-bold text-accent-blue">500+</p>
-                <p className="text-sm text-gray-400 mt-2">Premium Vehicles</p>
+                <p className="text-3xl font-bold text-accent-silver">500+</p>
+                <p className="text-sm text-accent-stone mt-2">Premium Vehicles</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl font-bold text-accent-orange">10K+</p>
-                <p className="text-sm text-gray-400 mt-2">Happy Customers</p>
+                <p className="text-3xl font-bold text-accent-platinum">10K+</p>
+                <p className="text-sm text-accent-stone mt-2">Happy Customers</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl font-bold text-accent-blue">25+</p>
-                <p className="text-sm text-gray-400 mt-2">Years Experience</p>
+                <p className="text-3xl font-bold text-accent-silver">25+</p>
+                <p className="text-sm text-accent-stone mt-2">Years Experience</p>
               </div>
             </motion.div>
           </motion.div>

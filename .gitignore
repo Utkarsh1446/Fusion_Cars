@@ -1,0 +1,422 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Production/Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.sln
+*.csproj
+*.swp
+*.swo
+*~
+.DS_Store
+.swiftpm/
+.build/
+.cproject
+.cdt.managedC_INCLUDES
+.cdt.managedC_SYMBOLS
+.cdtBuild
+.cdt*
+.language.settings.xml
+.classpath
+.project
+.settings/
+*.sublime-workspace
+*.sublime-project
+.IntelliJIDEALicense
+.idea
+*.iml
+*.ipr
+*.iws
+.netrwhist
+*~
+.vim/.netrwhist
+.viminfo
+Session.vim
+Extraneous file
+.netrc
+.session
+Session.vim
+.LSP
+.vscode-server/
+*.code-workspace
+
+# Package manager
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+pip.conf
+Pipfile.lock
+
+# OS specific files
+Thumbs.db
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+.TemporaryItems
+.VolumeIcon.icns
+
+# Temporary files
+*.tmp
+*.temp
+*~
+*.bak
+*.swp
+*.log
+*.dump
+debug.log
+
+# System files
+.vagrant/
+.vagrant.d/
+Vagrantfile
+Boxfile
+.docker/
+docker-compose.override.yml
+
+# Node modules specific
+node_modules/
+npm-shrinkwrap.json
+
+# Next.js specific
+.next/
+out/
+.nextjs/
+
+# Nuxt.js specific
+.nuxt
+dist
+
+# Gatsby specific
+.cache/
+public
+
+# Vuepress specific
+.vuepress/dist
+
+# Serverless specific
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# Firebase/Firestore
+.firebase/
+.firebaserc
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# IDE - IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# IDE - Sublime Text
+.sublime-workspace
+.sublime-project
+
+# IDE - Atom
+.atom/
+
+# IDE - vim
+.vim/
+Session.vim
+
+# Build outputs
+dist/
+build/
+*.ipa
+*.apk
+*.app
+
+# Backend specific
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+
+# Coverage directory used by tools like istanbul
+coverage/
+lcov.info
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+# https://docs.npmjs.com/cli/shrinkwrap#caveats
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# .DS_Store files
+.DS_Store
+
+# dotenv environment files
+.env*
+
+# Temporary files and folders
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.backup
+*.bak
+
+# OS generated files
+.AppleDouble
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.vscode
+.idea
+.eclipse
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+
+# Cypress specific
+cypress/screenshots/
+cypress/videos/
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+.sublime-workspace
+
+# VSCode
+.vscode/
+
+# Webpack
+dist/
+build/
+
+# Yarn
+yarn-error.log
+
+# Temporary development files
+.tmp/
+.temp/
+
+# Private files
+.private/
+secrets/
+credentials/
+
+# Local development overrides
+local.conf
+.localrc
+
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.o
+*.so
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Gradle files
+.gradle/
+build/
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# CI/CD
+.github/workflows/secrets.yml
+.gitlab-ci.yml
+.circleci/config.yml
+
+# Miscellaneous
+.cache
+.parcel-cache
+dist
+.env.*.local
+*.local
+
+# Lock files (optional - uncomment to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Application specific
+.next/
+out/
+.nuxt/
+dist/
+build/
+.cache/
+
+# Testing files that shouldn't be committed
+coverage/
+.coverage
+.pytest_cache/
+.mocha_cache/
+
+# Debug files
+*.dSYM/
+*.su
+*.gch
+
+# Profiling files
+perf.data
+perf.data.old
+flamegraph.html
+
+# Backup files
+*.orig
+*.rej
+
+# Merge conflict files
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Generated files
+generated/
+dist/
+build/
+
+# Optional npm cache
+.npm
+
+# Private configuration
+.private/
+.env.private
+config.private.js
+config.local.js
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+
+# System and IDE specific
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Next.js
+.next/
+out/
+
+# Build outputs
+.dist/
+.build/

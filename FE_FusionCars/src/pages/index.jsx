@@ -86,7 +86,7 @@ export default function Home() {
       <Hero />
 
       {/* Featured Cars Section */}
-      <section className="py-16 bg-primary-navy" aria-label="Featured vehicles">
+      <section className="py-16 bg-primary-black" aria-label="Featured vehicles">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -97,7 +97,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Featured Collection
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-accent-stone max-w-2xl mx-auto">
               Explore our handpicked selection of premium vehicles
             </p>
           </motion.div>
@@ -126,7 +126,7 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-accent-red text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent-gold transition-colors duration-300 shadow-lg"
+                className="bg-accent-silver text-primary-black px-8 py-4 rounded-lg font-semibold hover:bg-neutral-light transition-colors duration-300 shadow-lg"
               >
                 View All Vehicles
               </motion.button>
@@ -136,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-primary-charcoal" aria-label="Why choose Fusion Cars">
+      <section className="py-16 bg-primary-dark" aria-label="Why choose Fusion Cars">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-12"
@@ -147,7 +147,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Why Choose Fusion Cars?
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-accent-stone max-w-2xl mx-auto">
               We're committed to providing the best experience in the automotive industry
             </p>
           </motion.div>
@@ -164,13 +164,13 @@ export default function Home() {
               return (
                 <motion.div
                   key={index}
-                  className="bg-neutral-gray rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300 border border-gray-700/50"
+                  className="bg-primary-charcoal rounded-lg p-8 text-center hover:shadow-lg transition-shadow duration-300 border border-accent-charcoal"
                   variants={itemVariants}
                   whileHover={{ y: -5 }}
                 >
-                  <Icon className="w-16 h-16 text-accent-red mx-auto mb-4" />
+                  <Icon className="w-16 h-16 text-accent-silver mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-white mb-3">{benefit.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{benefit.description}</p>
+                  <p className="text-accent-platinum leading-relaxed">{benefit.description}</p>
                 </motion.div>
               );
             })}
@@ -182,7 +182,7 @@ export default function Home() {
       <Testimonials />
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary-dark via-primary-navy to-primary-charcoal text-white" aria-label="Call to action">
+      <section className="py-16 bg-gradient-to-r from-primary-black via-primary-dark to-primary-charcoal text-white" aria-label="Call to action">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -190,13 +190,13 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Drive Home Your Dream Car?</h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-accent-stone mb-8 max-w-2xl mx-auto">
               Book a test drive today and experience the difference with Fusion Cars
             </p>
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(230, 57, 70, 0.3)' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(209, 213, 219, 0.3)' }}
               whileTap={{ scale: 0.95 }}
-              className="bg-accent-red text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent-gold transition-colors duration-300 shadow-lg"
+              className="bg-accent-silver text-primary-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-neutral-light transition-colors duration-300 shadow-lg"
               aria-label="Book a test drive"
             >
               Schedule Test Drive
