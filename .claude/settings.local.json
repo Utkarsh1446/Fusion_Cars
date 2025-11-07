@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(dir \"D:\\Utkarsh\\Fusion_Cars\")",
+      "Bash(findstr:*)",
+      "Bash(powershell -Command \"Get-ChildItem ''D:\\Utkarsh\\Fusion_Cars'' -Directory\")",
+      "Bash(powershell -Command:*)",
+      "Bash(dir:*)",
+      "Bash(npm install)",
+      "Bash(npm run dev:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
