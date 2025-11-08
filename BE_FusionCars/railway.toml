@@ -35,7 +35,7 @@ PORT = "5000"
 
 # MongoDB Configuration - MongoDB Atlas Connection
 # Replace with your MongoDB Atlas connection string
-MONGODB_URI = "mongodb+srv://fusionuser:FusionPass123@fusiondb.mongodb.net/fusion-cars?retryWrites=true&w=majority"
+MONGODB_URI=mongodb+srv://chitranshnishad27_db_user:OKXOglc9LPOvmT8E@cluster0.2uxmdzm.mongodb.net/?appName=Cluster0
 
 # JWT Configuration - Used for token signing
 # Keep this secure - generate a new one for production
@@ -43,7 +43,7 @@ JWT_SECRET = "b433550cf678306ac4a42b3b3aadb5670b5918205eb3fad836654302063848fe4e
 
 # Frontend URL - Update after Vercel deployment
 # This is used for redirects and CORS
-FRONTEND_URL = "https://fusion-cars.vercel.app"
+FRONTEND_URL = "https://fusioncars.vercel.app/"
 
 # Admin Registration Key - Used to protect admin signup
 # Keep this secure - change for production
