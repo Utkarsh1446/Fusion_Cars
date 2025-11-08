@@ -34,8 +34,9 @@ NODE_ENV = "production"
 PORT = "5000"
 
 # MongoDB Configuration - MongoDB Atlas Connection
-# Replace with your MongoDB Atlas connection string
-MONGODB_URI = "mongodb+srv://chitranshnishad27_db_user:OKXOglc9LPOvmT8E@cluster0.2uxmdzm.mongodb.net/?appName=Cluster0"
+# IMPORTANT: Set this in Railway dashboard Variables, NOT here!
+# This will be overridden by the Railway environment variable
+# MONGODB_URI = "mongodb+srv://chitranshnishad27_db_user:<OKXOglc9LPOvmT8E>@cluster0.2uxmdzm.mongodb.net/"
 
 # JWT Configuration - Used for token signing
 # Keep this secure - generate a new one for production

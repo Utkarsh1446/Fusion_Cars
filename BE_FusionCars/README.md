@@ -47,9 +47,9 @@ Server will run on **http://localhost:5000**
 
 ```env
 # MongoDB Connection
-MONGODB_URI=mongodb://localhost:27017/fusion_cars
+MONGODB_URI=mongodb+srv://chitranshnishad27_db_user:<OKXOglc9LPOvmT8E>@cluster0.2uxmdzm.mongodb.net/
 # Or MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/fusion_cars
+# MONGODB_URI=mongodb+srv://chitranshnishad27_db_user:<OKXOglc9LPOvmT8E>@cluster0.2uxmdzm.mongodb.net/
 
 # JWT Secret (generate a strong random string)
 JWT_SECRET=your_super_secret_jwt_key_change_this
@@ -112,7 +112,7 @@ mongosh
 4. Update `MONGODB_URI` in `.env`
 
 ```env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/fusion_cars?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://chitranshnishad27_db_user:<OKXOglc9LPOvmT8E>@cluster0.2uxmdzm.mongodb.net/
 ```
 
 ## 👤 Create First Admin User
