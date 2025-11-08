@@ -51,7 +51,7 @@ ADMIN_REGISTRATION_KEY = "9af7861c00aec7b1ad34c62ca0e6007782a4c4ef2df99ec7578089
 
 # CORS Origins - Comma-separated list
 # Update with your Vercel frontend URL
-CORS_ORIGIN = "https://fusion-cars.vercel.app,https://www.fusion-cars.vercel.app"
+CORS_ORIGIN = "https://fusion-cars.vercel.app,https://www.fusion-cars.vercel.app,https://fusioncars.vercel.app/"
 
 # Optional: Email Configuration (if using email services)
 # EMAIL_HOST = "smtp.gmail.com"
