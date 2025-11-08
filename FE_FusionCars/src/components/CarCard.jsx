@@ -225,23 +225,23 @@ export default function CarCard({ car }) {
           )}
 
           {/* Premium Action Buttons */}
-          <div className="flex flex-col gap-2 mt-auto pt-4 border-t border-white/5 min-w-0">
+          <div className="flex flex-col gap-2.5 mt-auto pt-4 border-t border-white/5 w-full">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full btn-primary py-2.5 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 group/btn truncate"
+              className="w-full btn-primary py-3 px-4 text-sm sm:text-base font-bold flex items-center justify-center gap-2 group/btn whitespace-nowrap overflow-hidden text-ellipsis"
               onClick={(e) => e.preventDefault()}
               aria-label={`View details for ${car.brand} ${car.model}`}
               title="View Details"
             >
-              <span className="truncate">View Details</span>
-              <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 group-hover/btn:translate-x-1 transition-transform" />
+              <span className="whitespace-nowrap overflow-hidden text-ellipsis flex-1">View Details</span>
+              <ArrowRight className="w-4 h-4 flex-shrink-0 group-hover/btn:translate-x-1 transition-transform" />
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full btn-secondary py-2.5 text-xs sm:text-sm font-semibold truncate"
+              className="w-full btn-secondary py-3 px-4 text-sm sm:text-base font-bold whitespace-nowrap overflow-hidden text-ellipsis"
               onClick={(e) => e.preventDefault()}
               aria-label={`Schedule test drive for ${car.brand} ${car.model}`}
               title="Book Test Drive"
