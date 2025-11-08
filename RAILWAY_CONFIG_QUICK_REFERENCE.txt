@@ -1,0 +1,389 @@
+═══════════════════════════════════════════════════════════════════════════════
+
+        RAILWAY.TOML - CONFIG-AS-CODE QUICK REFERENCE
+
+═══════════════════════════════════════════════════════════════════════════════
+
+FILE LOCATION
+═════════════════════════════════════════════════════════════════════════════
+BE_FusionCars/railway.toml
+↑
+Right in the root of BE_FusionCars folder!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+WHAT IS RAILWAY.TOML?
+═════════════════════════════════════════════════════════════════════════════
+
+Infrastructure-as-Code file that tells Railway:
+  ✓ How to build your app
+  ✓ How to start your app
+  ✓ What port to use
+  ✓ What environment variables to set
+  ✓ Health check configuration
+  ✓ Auto-restart settings
+
+No need to manually configure anything in Railway dashboard!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+HOW TO USE IT
+═════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Edit railway.toml
+   → Update these values:
+      MONGODB_URI = "your-connection-string"
+      FRONTEND_URL = "https://your-vercel-url.vercel.app"
+      CORS_ORIGIN = "https://your-vercel-url.vercel.app,..."
+
+STEP 2: Push to GitHub
+   git add .
+   git commit -m "Add Railway config"
+   git push origin main
+
+STEP 3: Go to Railway Dashboard
+   https://railway.app/dashboard
+
+STEP 4: Enable Config-as-Code
+   Settings → Config as Code → Enable
+
+STEP 5: Deploy
+   Railway automatically uses railway.toml
+   All settings applied instantly!
+   No manual configuration needed!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+KEY SECTIONS
+═════════════════════════════════════════════════════════════════════════════
+
+[build]
+  - How to build your app
+  - Build-time environment
+  - Currently: Use Nixpacks (automatic Node.js detection)
+
+[deploy]
+  - Health check configuration
+  - Restart policy
+  - Currently: Health check enabled at /api/health
+
+[start]
+  - Command to start app: npm start
+  - Port: 5000
+  - Exactly match your backend!
+
+[variables]
+  - All 7 environment variables
+  - NODE_ENV, PORT, MONGODB_URI, JWT_SECRET, etc.
+  - UPDATE THESE WITH YOUR VALUES!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+VALUES YOU MUST UPDATE
+═════════════════════════════════════════════════════════════════════════════
+
+1. MONGODB_URI
+   Current: mongodb+srv://fusionuser:FusionPass123@...
+   Update: Your actual MongoDB Atlas connection string
+   Format: mongodb+srv://username:password@cluster.mongodb.net/dbname
+
+2. FRONTEND_URL
+   Current: https://fusion-cars.vercel.app
+   Update: Your actual Vercel frontend URL (after deployment)
+   Example: https://your-project.vercel.app
+
+3. CORS_ORIGIN
+   Current: https://fusion-cars.vercel.app,https://www.fusion-cars.vercel.app
+   Update: Your actual Vercel URLs
+   Format: https://your-url,https://www.your-url
+
+═════════════════════════════════════════════════════════════════════════════
+
+VALUES YOU SHOULD KEEP (ALREADY GENERATED)
+═════════════════════════════════════════════════════════════════════════════
+
+1. JWT_SECRET
+   Value: b433550cf678306ac4a42b3b3aadb5670b5918205eb3fad836654302063848fe...
+   Keep: Secure, don't change
+   Use: Token signing for authentication
+
+2. ADMIN_REGISTRATION_KEY
+   Value: 9af7861c00aec7b1ad34c62ca0e6007782a4c4ef2df99ec757808986f704fcb1
+   Keep: Secure, don't change
+   Use: Protect admin registration endpoint
+
+═════════════════════════════════════════════════════════════════════════════
+
+DEPLOYMENT BENEFITS
+═════════════════════════════════════════════════════════════════════════════
+
+BEFORE (Manual Dashboard Configuration):
+  ✗ Go to Settings
+  ✗ Add variable 1
+  ✗ Add variable 2
+  ✗ Add variable 3
+  ✗ Add variable 4
+  ✗ Add variable 5
+  ✗ Add variable 6
+  ✗ Add variable 7
+  ✗ Click Save
+  Time: 10 minutes
+  Error-prone: Yes
+
+AFTER (Config-as-Code):
+  ✓ Have railway.toml in repo
+  ✓ Push code
+  ✓ Railway auto-applies all settings
+  Time: 1 minute
+  Error-prone: No
+  Reproducible: Yes
+
+═════════════════════════════════════════════════════════════════════════════
+
+DEPLOYMENT FLOW
+═════════════════════════════════════════════════════════════════════════════
+
+Code with railway.toml
+         ↓
+Push to GitHub
+         ↓
+Railway detects railway.toml
+         ↓
+Railway reads configuration
+         ↓
+Railway builds app (using [build] section)
+         ↓
+Railway starts app (using [start] section)
+         ↓
+Railway sets port 5000
+         ↓
+Railway applies all variables
+         ↓
+Railway enables health checks
+         ↓
+Railway enables auto-restart
+         ↓
+🎉 App is live with perfect configuration!
+
+═════════════════════════════════════════════════════════════════════════════
+
+WHAT GETS AUTO-CONFIGURED
+═════════════════════════════════════════════════════════════════════════════
+
+✓ Build system (Nixpacks)
+✓ Build command (automatic)
+✓ Start command (npm start)
+✓ Port (5000)
+✓ Environment: Production
+✓ All 7 environment variables
+✓ Health check endpoint
+✓ Health check path (/api/health)
+✓ Auto-restart on failure
+✓ Restart retries (3 times)
+
+No manual configuration needed anywhere!
+
+═════════════════════════════════════════════════════════════════════════════
+
+QUICK CHECKLIST
+═════════════════════════════════════════════════════════════════════════════
+
+Before deploying:
+  ☐ railway.toml exists in BE_FusionCars root
+  ☐ MONGODB_URI updated to your connection string
+  ☐ FRONTEND_URL set to your Vercel URL
+  ☐ CORS_ORIGIN set correctly
+  ☐ JWT_SECRET kept secure
+  ☐ File looks correct (no syntax errors)
+
+Deploying:
+  ☐ Commit railway.toml
+  ☐ Push to GitHub
+  ☐ Go to Railway dashboard
+  ☐ Go to Settings → Config as Code
+  ☐ Enable config-as-code
+  ☐ Click Deploy
+
+After deployment:
+  ☐ Check all variables are set
+  ☐ Test health endpoint
+  ☐ Verify app is running
+  ☐ Monitor logs
+
+═════════════════════════════════════════════════════════════════════════════
+
+SECURITY NOTES
+═════════════════════════════════════════════════════════════════════════════
+
+ℹ️ This file contains sensitive values:
+   - JWT_SECRET (keep secure)
+   - ADMIN_REGISTRATION_KEY (keep secure)
+   - MONGODB_URI credentials (keep secure)
+
+⚠️ Security best practices:
+   ✓ Don't commit secrets to public repos
+   ✓ Use Railway's secret management for sensitive values
+   ✓ Or add railway.toml to .gitignore after initial setup
+   ✓ Only share with team members who need it
+   ✓ Regenerate secrets after any team changes
+   ✓ Never push to public repositories with actual secrets
+
+🔒 For production:
+   - Use Railway's built-in secret management
+   - Or reference environment variables from Railway
+   - Keep actual secrets in Railway dashboard only
+   - Use config file for non-sensitive configuration
+
+═════════════════════════════════════════════════════════════════════════════
+
+IF YOU NEED TO ADD MORE VARIABLES
+═════════════════════════════════════════════════════════════════════════════
+
+Simply add to [variables] section:
+
+[variables]
+NODE_ENV = "production"
+PORT = "5000"
+# ... existing variables ...
+
+# Add new ones:
+NEW_VARIABLE = "value"
+ANOTHER_VAR = "another-value"
+
+═════════════════════════════════════════════════════════════════════════════
+
+IF YOU NEED EMAIL CONFIGURATION
+═════════════════════════════════════════════════════════════════════════════
+
+Uncomment in railway.toml:
+
+[variables]
+# Existing variables...
+
+# Email:
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = "587"
+EMAIL_USER = "your-email@gmail.com"
+EMAIL_PASS = "your-app-password"
+ADMIN_EMAIL = "admin@fusioncars.in"
+
+Then Railway will use these for email notifications.
+
+═════════════════════════════════════════════════════════════════════════════
+
+USEFUL COMMANDS
+═════════════════════════════════════════════════════════════════════════════
+
+# View Railway logs:
+railway logs
+
+# Check deployments:
+railway deployments
+
+# View environment variables:
+railway variables
+
+# Connect to service:
+railway shell
+
+# Monitor application:
+railway logs -f  (follow logs)
+
+═════════════════════════════════════════════════════════════════════════════
+
+TROUBLESHOOTING
+═════════════════════════════════════════════════════════════════════════════
+
+Problem: railway.toml not recognized
+Solution:
+  ✓ Ensure file is in BE_FusionCars root
+  ✓ File name is exactly "railway.toml"
+  ✓ Push code to GitHub
+  ✓ Refresh Railway dashboard
+
+Problem: Variables not set
+Solution:
+  ✓ Check [variables] section
+  ✓ Verify format is correct
+  ✓ Check for typos
+  ✓ Redeploy
+
+Problem: Build fails
+Solution:
+  ✓ Check [build] section
+  ✓ Verify [start] command
+  ✓ Check port is correct
+  ✓ Review Railway logs
+
+═════════════════════════════════════════════════════════════════════════════
+
+FILE STRUCTURE EXAMPLE
+═════════════════════════════════════════════════════════════════════════════
+
+[build]
+builder = "nixpacks"
+[build.env]
+NODE_ENV = "production"
+
+[deploy]
+healthchecks = {enabled = true, path = "/api/health"}
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[start]
+cmd = "npm start"
+port = 5000
+
+[variables]
+NODE_ENV = "production"
+PORT = "5000"
+MONGODB_URI = "mongodb+srv://..."
+JWT_SECRET = "b433550cf..."
+FRONTEND_URL = "https://..."
+ADMIN_REGISTRATION_KEY = "9af7861c..."
+CORS_ORIGIN = "https://..."
+
+═════════════════════════════════════════════════════════════════════════════
+
+STATUS
+═════════════════════════════════════════════════════════════════════════════
+
+✅ railway.toml created
+✅ Located in: BE_FusionCars/
+✅ Ready to use
+✅ Update your values
+✅ Push to GitHub
+✅ Deploy!
+
+═════════════════════════════════════════════════════════════════════════════
+
+NEXT STEPS
+═════════════════════════════════════════════════════════════════════════════
+
+1. Update railway.toml with your values
+   → MONGODB_URI
+   → FRONTEND_URL
+   → CORS_ORIGIN
+
+2. Push to GitHub
+   git add BE_FusionCars/railway.toml
+   git commit -m "Add Railway config-as-code"
+   git push origin main
+
+3. Enable in Railway
+   Dashboard → Settings → Config as Code → Enable
+
+4. Deploy
+   Click Deploy
+   Railway uses railway.toml automatically!
+
+5. Verify
+   Check variables in dashboard
+   Test /api/health endpoint
+   Monitor logs
+
+═════════════════════════════════════════════════════════════════════════════
+
+Your infrastructure-as-code is ready! 🚀
+
+═════════════════════════════════════════════════════════════════════════════

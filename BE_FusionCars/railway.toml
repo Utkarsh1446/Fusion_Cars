@@ -1,0 +1,92 @@
+# Railway Configuration File (TOML)
+# For Fusion Cars Backend Deployment
+# Place this file in the root of your repository for config-as-code deployment
+
+[build]
+# Build command to run
+builder = "nixpacks"
+
+# Environment variables for build
+[build.env]
+NODE_ENV = "production"
+NPM_FLAGS = "--production"
+
+[deploy]
+# Health check configuration
+healthchecks = {enabled = true, path = "/api/health"}
+
+# Restart policy
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
+
+[start]
+# Command to start the application
+cmd = "npm start"
+
+# Port the application listens on
+port = 5000
+
+[variables]
+# Application Environment
+NODE_ENV = "production"
+
+# Server Port
+PORT = "5000"
+
+# MongoDB Configuration - MongoDB Atlas Connection
+# Replace with your MongoDB Atlas connection string
+MONGODB_URI = "mongodb+srv://fusionuser:FusionPass123@fusiondb.mongodb.net/fusion-cars?retryWrites=true&w=majority"
+
+# JWT Configuration - Used for token signing
+# Keep this secure - generate a new one for production
+JWT_SECRET = "b433550cf678306ac4a42b3b3aadb5670b5918205eb3fad836654302063848fe4e53e432753560cecee433d8d5f61086427aa03b6b5243bb609a5267cc7786ad"
+
+# Frontend URL - Update after Vercel deployment
+# This is used for redirects and CORS
+FRONTEND_URL = "https://fusion-cars.vercel.app"
+
+# Admin Registration Key - Used to protect admin signup
+# Keep this secure - change for production
+ADMIN_REGISTRATION_KEY = "9af7861c00aec7b1ad34c62ca0e6007782a4c4ef2df99ec757808986f704fcb1"
+
+# CORS Origins - Comma-separated list
+# Update with your Vercel frontend URL
+CORS_ORIGIN = "https://fusion-cars.vercel.app,https://www.fusion-cars.vercel.app"
+
+# Optional: Email Configuration (if using email services)
+# EMAIL_HOST = "smtp.gmail.com"
+# EMAIL_PORT = "587"
+# EMAIL_USER = "your-email@gmail.com"
+# EMAIL_PASS = "your-app-password"
+# ADMIN_EMAIL = "admin@fusioncars.in"
+
+[volumes]
+# Optional: Add volumes for persistent data
+# Example: mongo_data = "/data/db"
+# Not needed if using MongoDB Atlas
+
+[mounts]
+# Optional: Mount points
+# Example: { key = "value" }
+
+[services]
+# Database service configuration
+[services.database]
+# If you want to add a MongoDB service from Railway
+# Uncomment below and configure
+# image = "mongo:latest"
+# port = 27017
+#
+# [services.database.env]
+# MONGO_INITDB_ROOT_USERNAME = "root"
+# MONGO_INITDB_ROOT_PASSWORD = "password"
+
+# Note: Currently using MongoDB Atlas (cloud)
+# If you want local MongoDB, uncomment above section
+
+[build.nixpacks]
+# Nixpacks specific configuration
+providers = ["nodejs-npm"]
+
+# Cache layers
+cacheLayers = ["node_modules"]
