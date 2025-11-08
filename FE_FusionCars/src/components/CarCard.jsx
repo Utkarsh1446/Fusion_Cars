@@ -1,157 +1,262 @@
 import { motion } from 'framer-motion';
-import { Heart, MapPin, Zap, Settings } from 'lucide-react';
+import { Heart, Gauge, Fuel, Calendar, Star, ArrowRight, Eye } from 'lucide-react';
 import { useState } from 'react';
+import Link from 'next/link';
 
 /**
- * CarCard Component - Dark Luxury Theme
+ * Luxury CarCard Component - PREMIUM REDESIGN
  *
- * Premium car card with dark background and red accents:
- * - Dark gray card background
- * - Car image with hover effects
- * - Red featured badge
- * - Red price badge
- * - Rating and reviews
- * - Wishlist functionality
- * - Accessible labels and ARIA attributes
+ * Sophisticated vehicle card featuring:
+ * - Elegant gold accents and borders
+ * - Glass-morphism overlays
+ * - Premium hover lift effects
+ * - Sophisticated image treatments
+ * - Refined typography hierarchy
+ * - Luxury badge system
+ * - Smooth micro-interactions
  */
 export default function CarCard({ car }) {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const toggleFavorite = () => {
+  const toggleFavorite = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     setIsFavorite(!isFavorite);
   };
 
   return (
-    <motion.article
-      className="bg-primary-charcoal rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 h-full flex flex-col border border-accent-charcoal"
-      whileHover={{ y: -8 }}
-      layout
-      aria-label={`${car.brand} ${car.model} - ${car.priceInWords}`}
-    >
-      {/* Image Container with Badge */}
-      <div className="relative h-72 overflow-hidden bg-gradient-to-br from-primary-dark to-primary-black group">
-        <motion.img
-          src={car.image}
-          alt={`${car.brand} ${car.model} front view`}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          loading="lazy"
-        />
-
-        {/* Featured Badge - Silver Luxury Style */}
-        {car.featured && (
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="absolute top-4 right-4 bg-accent-silver text-primary-black px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider shadow-lg"
-          >
-            ⭐ Featured
-          </motion.div>
-        )}
-
-        {/* Wishlist Button */}
-        <motion.button
-          onClick={toggleFavorite}
-          className="absolute top-4 left-4 bg-primary-charcoal p-3 rounded-full shadow-lg hover:shadow-2xl transition-shadow border border-accent-silver/30"
-          whileHover={{ scale: 1.15 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label={isFavorite ? `Remove ${car.brand} ${car.model} from favorites` : `Add ${car.brand} ${car.model} to favorites`}
-          aria-pressed={isFavorite}
-        >
-          <Heart
-            className={`w-6 h-6 transition-colors ${isFavorite ? 'fill-accent-silver text-accent-silver' : 'text-accent-platinum'}`}
+    <Link href={`/inventory/${car.id || '#'}`}>
+      <motion.article
+        className="group relative bg-primary-dark rounded-2xl overflow-hidden border border-white/5 hover:border-luxury-gold/30 transition-all duration-500 h-full flex flex-col cursor-pointer"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{ y: -12 }}
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
+        style={{
+          boxShadow: isHovered
+            ? '0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(212, 175, 55, 0.15)'
+            : '0 4px 16px rgba(0, 0, 0, 0.2)',
+        }}
+        aria-label={`${car.brand} ${car.model} - ${car.priceInWords}`}
+      >
+        {/* Premium Image Container */}
+        <div className="relative h-64 overflow-hidden bg-gradient-to-br from-neutral-900 to-black">
+          {/* Car Image */}
+          <motion.img
+            src={car.image}
+            alt={`${car.brand} ${car.model} - Premium luxury vehicle`}
+            className="w-full h-full object-cover"
+            animate={{
+              scale: isHovered ? 1.1 : 1,
+            }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            loading="lazy"
           />
-        </motion.button>
 
-        {/* Rating Badge */}
-        <div className="absolute bottom-4 left-4 bg-primary-charcoal/95 text-accent-silver px-4 py-2 rounded-full flex items-center gap-2 shadow-lg border border-accent-silver/50">
-          <span className="font-bold text-sm">⭐ {car.rating}</span>
-          <span className="text-xs text-accent-stone">({car.reviews})</span>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+          {/* Gold Shine Effect on Hover */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-tr from-transparent via-luxury-gold/5 to-transparent"
+            initial={{ x: '-100%', opacity: 0 }}
+            animate={{
+              x: isHovered ? '100%' : '-100%',
+              opacity: isHovered ? 1 : 0,
+            }}
+            transition={{ duration: 0.8, ease: 'easeInOut' }}
+          />
+
+          {/* Featured Badge - Premium Gold */}
+          {car.featured && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="absolute top-4 right-4 px-4 py-1.5 rounded-full font-bold text-xs uppercase tracking-wider premium-badge flex items-center gap-1.5"
+            >
+              <Star className="w-3 h-3 fill-current" />
+              Featured
+            </motion.div>
+          )}
+
+          {/* Wishlist Button - Glass Effect */}
+          <motion.button
+            onClick={toggleFavorite}
+            className="absolute top-4 left-4 glass-light p-2.5 rounded-full shadow-luxury hover:shadow-luxury-lg transition-all border border-white/20"
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label={
+              isFavorite
+                ? `Remove ${car.brand} ${car.model} from favorites`
+                : `Add ${car.brand} ${car.model} to favorites`
+            }
+            aria-pressed={isFavorite}
+          >
+            <Heart
+              className={`w-5 h-5 transition-all duration-300 ${
+                isFavorite
+                  ? 'fill-luxury-gold text-luxury-gold scale-110'
+                  : 'text-white/80'
+              }`}
+            />
+          </motion.button>
+
+          {/* Rating Badge - Bottom Left */}
+          <div className="absolute bottom-4 left-4 glass rounded-full px-3 py-1.5 flex items-center gap-2 border border-white/20 backdrop-blur-xl">
+            <Star className="w-4 h-4 fill-luxury-gold text-luxury-gold" />
+            <span className="text-white font-bold text-sm">{car.rating}</span>
+            <span className="text-white/60 text-xs">({car.reviews})</span>
+          </div>
+
+          {/* View Details Overlay - Shows on Hover */}
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className="flex items-center gap-2 text-white font-semibold text-lg"
+              initial={{ y: 10, opacity: 0 }}
+              animate={{
+                y: isHovered ? 0 : 10,
+                opacity: isHovered ? 1 : 0,
+              }}
+              transition={{ delay: 0.1 }}
+            >
+              <Eye className="w-5 h-5" />
+              View Details
+              <ArrowRight className="w-5 h-5" />
+            </motion.div>
+          </motion.div>
         </div>
 
-        {/* Price Badge Floating - Silver Accent */}
+        {/* Content Section */}
+        <div className="p-6 flex flex-col flex-grow bg-gradient-to-b from-primary-dark to-primary-black">
+          {/* Brand & Price Row */}
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex-1">
+              <p className="text-luxury-gold font-semibold text-xs uppercase tracking-widest mb-2">
+                {car.brand}
+              </p>
+              <h3 className="text-2xl font-serif font-bold text-white mb-1 leading-tight group-hover:text-luxury-gold transition-colors">
+                {car.model}
+              </h3>
+              <p className="text-neutral-400 text-sm flex items-center gap-2">
+                <Calendar className="w-3.5 h-3.5" />
+                {car.year} Model
+              </p>
+            </div>
+
+            {/* Price Badge */}
+            <div className="text-right">
+              <p className="text-luxury-gold text-2xl font-bold font-serif">
+                ₹{car.priceInWords}
+              </p>
+              <p className="text-neutral-500 text-xs uppercase tracking-wide">
+                Starting Price
+              </p>
+            </div>
+          </div>
+
+          {/* Luxury Divider */}
+          <div className="luxury-divider my-4"></div>
+
+          {/* Key Specifications - Premium Grid */}
+          <div className="grid grid-cols-3 gap-3 mb-5">
+            {/* Fuel Type */}
+            <div className="glass-light rounded-lg p-3 text-center border border-white/5 hover:border-luxury-gold/30 transition-colors">
+              <Fuel className="w-5 h-5 text-luxury-gold mx-auto mb-2" />
+              <p className="text-xs font-semibold text-white mb-0.5">
+                {car.fuelType}
+              </p>
+              <p className="text-xs text-neutral-500 uppercase tracking-wide">
+                Fuel
+              </p>
+            </div>
+
+            {/* Transmission */}
+            <div className="glass-light rounded-lg p-3 text-center border border-white/5 hover:border-luxury-gold/30 transition-colors">
+              <Gauge className="w-5 h-5 text-luxury-platinum mx-auto mb-2" />
+              <p className="text-xs font-semibold text-white mb-0.5">
+                {car.transmission}
+              </p>
+              <p className="text-xs text-neutral-500 uppercase tracking-wide">
+                Trans
+              </p>
+            </div>
+
+            {/* Mileage */}
+            <div className="glass-light rounded-lg p-3 text-center border border-white/5 hover:border-luxury-gold/30 transition-colors">
+              <Gauge className="w-5 h-5 text-luxury-silver mx-auto mb-2" />
+              <p className="text-xs font-semibold text-white mb-0.5">
+                {car.mileage}
+              </p>
+              <p className="text-xs text-neutral-500 uppercase tracking-wide">
+                Kmpl
+              </p>
+            </div>
+          </div>
+
+          {/* Premium Features */}
+          {car.features && car.features.length > 0 && (
+            <div className="mb-5">
+              <p className="text-xs font-bold text-neutral-400 mb-3 uppercase tracking-widest">
+                Highlights
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {car.features.slice(0, 2).map((feature, index) => (
+                  <span
+                    key={index}
+                    className="glass-light text-white px-3 py-1.5 rounded-full text-xs font-medium border border-white/10 hover:border-luxury-gold/50 transition-colors"
+                  >
+                    {feature}
+                  </span>
+                ))}
+                {car.features.length > 2 && (
+                  <span className="text-xs text-luxury-gold font-semibold px-3 py-1.5 flex items-center gap-1">
+                    <span>+{car.features.length - 2} more</span>
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Premium Action Buttons */}
+          <div className="flex gap-3 mt-auto pt-4 border-t border-white/5">
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex-1 btn-primary py-3 text-sm font-semibold flex items-center justify-center gap-2 group/btn"
+              onClick={(e) => e.preventDefault()}
+              aria-label={`View details for ${car.brand} ${car.model}`}
+            >
+              <span>View Details</span>
+              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex-1 btn-secondary py-3 text-sm font-semibold"
+              onClick={(e) => e.preventDefault()}
+              aria-label={`Schedule test drive for ${car.brand} ${car.model}`}
+            >
+              Test Drive
+            </motion.button>
+          </div>
+        </div>
+
+        {/* Subtle gold glow effect on hover */}
         <motion.div
-          className="absolute bottom-4 right-4 bg-accent-silver text-primary-black px-4 py-2 rounded-full font-bold shadow-lg"
-          whileHover={{ scale: 1.05 }}
-        >
-          ₹{car.priceInWords}
-        </motion.div>
-      </div>
-
-      {/* Content Section */}
-      <div className="p-6 flex flex-col flex-grow bg-primary-charcoal">
-        {/* Brand and Model */}
-        <div className="mb-4">
-          <p className="text-accent-silver font-bold text-xs uppercase tracking-wider mb-2">{car.brand}</p>
-          <h3 className="text-2xl font-bold text-white mb-1">
-            {car.model}
-          </h3>
-          <p className="text-accent-stone text-sm">{car.year} Model Year</p>
-        </div>
-
-        {/* Key Specifications - Dark Grid */}
-        <div className="grid grid-cols-3 gap-3 mb-6 pb-6 border-b border-accent-charcoal">
-          {/* Fuel Type */}
-          <div className="bg-primary-dark/50 rounded-lg p-3 text-center border border-accent-charcoal">
-            <Zap className="w-5 h-5 text-accent-silver mx-auto mb-2" />
-            <p className="text-xs font-semibold text-white">{car.fuelType}</p>
-            <p className="text-xs text-accent-stone">Fuel</p>
-          </div>
-
-          {/* Transmission */}
-          <div className="bg-primary-dark/50 rounded-lg p-3 text-center border border-accent-charcoal">
-            <Settings className="w-5 h-5 text-accent-platinum mx-auto mb-2" />
-            <p className="text-xs font-semibold text-white">{car.transmission}</p>
-            <p className="text-xs text-accent-stone">Trans.</p>
-          </div>
-
-          {/* Mileage */}
-          <div className="bg-primary-dark/50 rounded-lg p-3 text-center border border-accent-charcoal">
-            <MapPin className="w-5 h-5 text-accent-charcoal mx-auto mb-2" />
-            <p className="text-xs font-semibold text-white">{car.mileage}</p>
-            <p className="text-xs text-accent-stone">Mileage</p>
-          </div>
-        </div>
-
-        {/* Features Tags */}
-        <div className="mb-6">
-          <p className="text-xs font-bold text-accent-silver mb-3 uppercase tracking-wider">Features</p>
-          <div className="flex flex-wrap gap-2">
-            {car.features.slice(0, 2).map((feature, index) => (
-              <span
-                key={index}
-                className="bg-primary-dark text-accent-silver px-3 py-1 rounded-full text-xs font-medium border border-accent-silver/30"
-              >
-                ✓ {feature}
-              </span>
-            ))}
-            {car.features.length > 2 && (
-              <span className="text-xs text-accent-platinum font-bold px-3 py-1">
-                +{car.features.length - 2} more
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex gap-3 mt-auto">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex-1 bg-accent-silver text-primary-black py-3 rounded-lg font-bold hover:bg-neutral-light shadow-md transition-all duration-300"
-            aria-label={`View details for ${car.brand} ${car.model}`}
-          >
-            View Details
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex-1 border-2 border-accent-silver text-accent-silver py-3 rounded-lg font-bold hover:bg-accent-silver hover:text-primary-black transition-all duration-300"
-            aria-label={`Schedule test drive for ${car.brand} ${car.model}`}
-          >
-            Test Drive
-          </motion.button>
-        </div>
-      </div>
-    </motion.article>
+          className="absolute -inset-0.5 bg-gradient-gold rounded-2xl blur-xl -z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 0.15 : 0 }}
+          transition={{ duration: 0.4 }}
+        />
+      </motion.article>
+    </Link>
   );
 }
