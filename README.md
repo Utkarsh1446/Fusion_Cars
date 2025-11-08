@@ -1,6 +1,18 @@
-# Fusion Cars - Premium Automotive Dealership Website
+# Fusion Cars - Premium Car Reselling Platform 🚗
 
-A modern, full-stack automotive dealership website built with Next.js and Express.js, featuring a sophisticated black and grayscale luxury design theme.
+A modern, enterprise-grade luxury car reselling platform built with Next.js and Express.js that **surpasses BigBoyToyz** with cutting-edge features including WhatsApp Bot admin integration, advanced car comparison tools, real-time financing calculator, and comprehensive admin dashboard.
+
+## 🏆 Why Fusion Cars Beats BigBoyToyz
+
+✅ **WhatsApp Bot Admin** - Manage listings via WhatsApp (Unique!)
+✅ **Advanced 3-Car Comparison** - Side-by-side detailed comparison
+✅ **Real-time EMI Calculator** - Visual financing breakdown
+✅ **Comprehensive Admin Dashboard** - Full CRUD with analytics
+✅ **Multi-Image Galleries** - 20+ images per car
+✅ **Inspection Reports** - Complete vehicle history
+✅ **Review System** - Customer reviews with moderation
+✅ **Wishlist Management** - Save favorite cars
+✅ **Premium UI/UX** - Black & grayscale luxury design
 
 ## 🎨 Design Theme
 
