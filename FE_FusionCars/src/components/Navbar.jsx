@@ -1,139 +1,272 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Phone, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './ThemeToggle';
 
 /**
- * Navbar Component - IMPROVED VERSION
+ * Luxury Navbar Component - PREMIUM REDESIGN
  *
- * Enhanced navigation with:
- * - Sticky positioning for easy access
- * - Contact info in header
- * - Search functionality
- * - Improved mobile experience
- * - Trust signals and call buttons
+ * Sophisticated navigation featuring:
+ * - Glass-morphism with backdrop blur
+ * - Elegant scroll-based transitions
+ * - Premium gold accent colors
+ * - Refined typography (Montserrat)
+ * - Smooth micro-interactions
+ * - Luxury CTAs with gold gradient
+ * - Floating sticky behavior
  */
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Track scroll position for glass effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Inventory', href: '/inventory' },
+    { name: 'Collection', href: '/inventory' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white dark:bg-primary-black text-gray-900 dark:text-white shadow-xl transition-colors duration-300" role="navigation" aria-label="Main navigation">
-      {/* Top Bar - Contact Info */}
-      <div className="bg-neutral-light dark:bg-primary-dark hidden sm:block border-b border-gray-200 dark:border-accent-silver/30 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center text-sm">
-          <div className="flex gap-6 text-gray-600 dark:text-gray-400">
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-accent-orange dark:text-accent-silver" />
-              <span>+91 (555) 123-4567</span>
+    <>
+      {/* Premium Top Bar - Contact Information */}
+      <div className="bg-black/95 backdrop-blur-sm border-b border-white/5 hidden lg:block">
+        <div className="luxury-container">
+          <div className="flex justify-between items-center py-3 text-sm">
+            <div className="flex gap-8 text-neutral-400">
+              <a
+                href="tel:+915551234567"
+                className="flex items-center gap-2 hover:text-luxury-gold transition-colors group"
+              >
+                <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">+91 (555) 123-4567</span>
+              </a>
+              <a
+                href="mailto:info@fusioncars.in"
+                className="flex items-center gap-2 hover:text-luxury-gold transition-colors group"
+              >
+                <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="font-medium">info@fusioncars.in</span>
+              </a>
             </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-accent-orange dark:text-accent-silver" />
-              <span>123 Motors Avenue, Tech City</span>
+
+            <div className="flex items-center gap-4">
+              <span className="text-neutral-400">Premium Showroom Hours:</span>
+              <span className="text-luxury-gold font-semibold">Mon-Sat 9AM-7PM</span>
             </div>
           </div>
-          <div className="text-accent-orange dark:text-accent-silver font-semibold">Open: Mon-Sat 9AM-6PM</div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+      {/* Main Luxury Navigation */}
+      <motion.nav
+        className={`sticky top-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? 'glass-dark shadow-luxury-lg border-b border-white/10'
+            : 'bg-transparent'
+        }`}
+        role="navigation"
+        aria-label="Main navigation"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="luxury-container">
+          <div className="flex justify-between items-center h-24">
+            {/* Luxury Logo */}
+            <Link href="/" className="flex items-center group">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-3"
+              >
+                {/* Logo Icon with Gold Gradient */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-gold rounded-xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
+                  <div className="relative w-12 h-12 bg-gradient-gold rounded-xl flex items-center justify-center shadow-gold-glow">
+                    <span className="text-black font-bold text-xl font-serif">FC</span>
+                  </div>
+                </div>
+
+                {/* Logo Text */}
+                <div className="hidden sm:block">
+                  <h1 className="font-serif text-2xl font-bold text-white tracking-tight">
+                    Fusion Cars
+                  </h1>
+                  <p className="text-xs text-luxury-gold uppercase tracking-widest font-semibold">
+                    Luxury Collection
+                  </p>
+                </div>
+              </motion.div>
+            </Link>
+
+            {/* Desktop Navigation Links */}
+            <div className="hidden lg:flex items-center gap-10">
+              {navLinks.map((link, index) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                >
+                  <Link
+                    href={link.href}
+                    className="relative text-white hover:text-luxury-gold transition-colors duration-300 font-medium text-sm uppercase tracking-wider group font-display"
+                  >
+                    {link.name}
+
+                    {/* Animated underline */}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-gold group-hover:w-full transition-all duration-300"></span>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Right Section - CTA & Theme Toggle */}
+            <div className="flex items-center gap-5">
+              <ThemeToggle />
+
+              {/* Premium CTA Button */}
+              <Link href="/contact" className="hidden sm:block">
+                <motion.button
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="btn-primary px-6 py-3 flex items-center gap-2 text-sm group shadow-gold-glow"
+                  aria-label="Schedule consultation"
+                >
+                  <span>Book Consultation</span>
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={toggleMenu}
+                className="lg:hidden p-2 text-white hover:text-luxury-gold transition-colors"
+                aria-label="Toggle navigation menu"
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                <AnimatePresence mode="wait">
+                  {isOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ rotate: -90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: 90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <X className="w-6 h-6" />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="menu"
+                      initial={{ rotate: 90, opacity: 0 }}
+                      animate={{ rotate: 0, opacity: 1 }}
+                      exit={{ rotate: -90, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Menu className="w-6 h-6" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Luxury Mobile Menu */}
+        <AnimatePresence>
+          {isOpen && (
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="font-bold text-2xl flex items-center gap-2"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              id="mobile-menu"
+              className="lg:hidden overflow-hidden glass-dark border-t border-white/10"
             >
-              <div className="w-10 h-10 bg-accent-orange dark:bg-accent-silver rounded-lg flex items-center justify-center transition-colors duration-300">
-                <span className="text-white dark:text-primary-black font-bold transition-colors duration-300">FC</span>
+              <div className="luxury-container py-8 space-y-6">
+                {/* Mobile Nav Links */}
+                <div className="space-y-4">
+                  {navLinks.map((link, index) => (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <Link
+                        href={link.href}
+                        className="block py-3 text-white hover:text-luxury-gold transition-colors font-medium text-lg border-b border-white/5 hover:border-luxury-gold/30"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span>{link.name}</span>
+                          <ChevronRight className="w-5 h-5 opacity-50" />
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Mobile CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="pt-4"
+                >
+                  <Link href="/contact">
+                    <button
+                      className="btn-primary w-full text-lg py-4 flex items-center justify-center gap-2"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span>Schedule Consultation</span>
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </Link>
+                </motion.div>
+
+                {/* Mobile Contact Info */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="pt-6 border-t border-white/10 space-y-3"
+                >
+                  <a
+                    href="tel:+915551234567"
+                    className="flex items-center gap-3 text-neutral-300 hover:text-luxury-gold transition-colors"
+                  >
+                    <Phone className="w-5 h-5" />
+                    <span>+91 (555) 123-4567</span>
+                  </a>
+                  <a
+                    href="mailto:info@fusioncars.in"
+                    className="flex items-center gap-3 text-neutral-300 hover:text-luxury-gold transition-colors"
+                  >
+                    <Mail className="w-5 h-5" />
+                    <span>info@fusioncars.in</span>
+                  </a>
+                </motion.div>
               </div>
-              <span className="hidden sm:inline text-gray-900 dark:text-white transition-colors duration-300">Fusion Cars</span>
             </motion.div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-gray-900 dark:text-white hover:text-accent-orange dark:hover:text-accent-silver transition-colors duration-300 font-medium text-sm"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Right Section - CTA Button & Theme Toggle */}
-          <div className="flex items-center gap-4">
-            <ThemeToggle />
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="hidden sm:block bg-accent-orange dark:bg-accent-silver hover:bg-orange-700 dark:hover:bg-gray-300 text-white dark:text-primary-black px-6 py-2 rounded-lg font-bold text-sm transition-colors duration-300 shadow-lg"
-              aria-label="Book a test drive"
-            >
-              Book Test Drive
-            </motion.button>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="md:hidden p-2 text-gray-900 dark:text-white transition-colors duration-300"
-              aria-label="Toggle navigation menu"
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            id="mobile-menu"
-            className="md:hidden pb-6 border-t border-gray-200 dark:border-accent-charcoal space-y-3 transition-colors duration-300"
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="block py-2 text-gray-900 dark:text-white hover:text-accent-orange dark:hover:text-accent-silver transition-colors font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-accent-orange dark:bg-accent-silver text-white dark:text-primary-black px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 dark:hover:bg-gray-300 transition-colors mt-4"
-              aria-label="Book a test drive from mobile menu"
-            >
-              Book Test Drive
-            </motion.button>
-          </motion.div>
-        )}
-      </div>
-    </nav>
+          )}
+        </AnimatePresence>
+      </motion.nav>
+    </>
   );
 }
