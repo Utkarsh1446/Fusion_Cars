@@ -212,33 +212,33 @@ export default function Inventory() {
                 {/* Price Range */}
                 <div className="mb-6">
                   <label className="block text-sm font-semibold text-accent-silver mb-2">
-                    Price Range
+                    Price Range (₹)
                   </label>
-                  <div className="flex gap-2">
+                  <div className="space-y-2">
                     <input
                       type="number"
-                      placeholder="Min"
+                      placeholder="Min Price"
                       value={filters.priceRange[0]}
                       onChange={(e) =>
                         handleFilterChange('priceRange', [
-                          Number(e.target.value),
+                          Number(e.target.value) || 0,
                           filters.priceRange[1],
                         ])
                       }
-                      className="flex-1 px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue placeholder-accent-stone"
+                      className="w-full px-3 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue placeholder-accent-stone text-sm"
                       aria-label="Minimum price"
                     />
                     <input
                       type="number"
-                      placeholder="Max"
+                      placeholder="Max Price"
                       value={filters.priceRange[1]}
                       onChange={(e) =>
                         handleFilterChange('priceRange', [
                           filters.priceRange[0],
-                          Number(e.target.value),
+                          Number(e.target.value) || 10000000,
                         ])
                       }
-                      className="flex-1 px-4 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue placeholder-accent-stone"
+                      className="w-full px-3 py-2 bg-primary-black border border-accent-charcoal text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue placeholder-accent-stone text-sm"
                       aria-label="Maximum price"
                     />
                   </div>

@@ -225,26 +225,28 @@ export default function CarCard({ car }) {
           )}
 
           {/* Premium Action Buttons */}
-          <div className="flex gap-3 mt-auto pt-4 border-t border-white/5">
+          <div className="flex flex-col gap-2 mt-auto pt-4 border-t border-white/5 min-w-0">
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 btn-primary py-3 text-sm font-semibold flex items-center justify-center gap-2 group/btn"
+              className="w-full btn-primary py-2.5 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 group/btn truncate"
               onClick={(e) => e.preventDefault()}
               aria-label={`View details for ${car.brand} ${car.model}`}
+              title="View Details"
             >
-              <span>View Details</span>
-              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+              <span className="truncate">View Details</span>
+              <ArrowRight className="w-3.5 h-3.5 flex-shrink-0 group-hover/btn:translate-x-1 transition-transform" />
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 btn-secondary py-3 text-sm font-semibold"
+              className="w-full btn-secondary py-2.5 text-xs sm:text-sm font-semibold truncate"
               onClick={(e) => e.preventDefault()}
               aria-label={`Schedule test drive for ${car.brand} ${car.model}`}
+              title="Book Test Drive"
             >
-              Test Drive
+              Book Test Drive
             </motion.button>
           </div>
         </div>
