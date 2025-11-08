@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Check } from 'lucide-react';
+import { API_ENDPOINTS } from '../config/api';
 
 /**
  * Car Comparison Component
@@ -24,7 +25,7 @@ export default function CarComparison({ initialCars = [] }) {
 
   const fetchCars = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/cars');
+      const response = await fetch(API_ENDPOINTS.cars);
       const data = await response.json();
       setAvailableCars(data.data || []);
     } catch (error) {

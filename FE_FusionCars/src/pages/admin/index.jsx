@@ -17,6 +17,7 @@ import {
   XCircle,
   BarChart3,
 } from 'lucide-react';
+import { API_ENDPOINTS } from '../../config/api';
 
 /**
  * Admin Dashboard
@@ -37,24 +38,33 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('overview');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure component is mounted (client-side only)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Check authentication
   useEffect(() => {
-    const token = localStorage.getItem('adminToken');
+    if (!mounted) return;
+
+    const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
     if (!token) {
       router.push('/admin/login');
     } else {
       setIsAuthenticated(true);
       fetchDashboardData();
     }
-  }, []);
+  }, [mounted, router]);
 
   const fetchDashboardData = async () => {
     try {
-      const token = localStorage.getItem('adminToken');
+      const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
+      if (!token) return;
 
       // Fetch stats
-      const statsRes = await fetch('http://localhost:5000/api/admin/dashboard/stats', {
+      const statsRes = await fetch(API_ENDPOINTS.adminDashboard, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -63,7 +73,7 @@ export default function AdminDashboard() {
       setStats(statsData);
 
       // Fetch cars
-      const carsRes = await fetch('http://localhost:5000/api/cars?limit=10');
+      const carsRes = await fetch(`${API_ENDPOINTS.cars}?limit=10`);
       const carsData = await carsRes.json();
       setCars(carsData.data || []);
 
@@ -75,7 +85,9 @@ export default function AdminDashboard() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('adminToken');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('adminToken');
+    }
     router.push('/admin/login');
   };
 
@@ -83,8 +95,8 @@ export default function AdminDashboard() {
     if (!confirm('Are you sure you want to delete this car?')) return;
 
     try {
-      const token = localStorage.getItem('adminToken');
-      await fetch(`http://localhost:5000/api/admin/cars/${carId}`, {
+      const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
+      await fetch(`${API_ENDPOINTS.adminCars}/${carId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -102,8 +114,8 @@ export default function AdminDashboard() {
 
   const toggleFeatured = async (carId) => {
     try {
-      const token = localStorage.getItem('adminToken');
-      await fetch(`http://localhost:5000/api/admin/cars/${carId}/featured`, {
+      const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
+      await fetch(`${API_ENDPOINTS.adminCars}/${carId}/featured`, {
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -117,7 +129,8 @@ export default function AdminDashboard() {
     }
   };
 
-  if (!isAuthenticated || loading) {
+  // Don't render until mounted (prevent hydration mismatch)
+  if (!mounted || !isAuthenticated || loading) {
     return (
       <div className="min-h-screen bg-primary-black flex items-center justify-center">
         <div className="text-white text-xl">Loading...</div>

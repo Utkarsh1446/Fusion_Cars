@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { Lock, Mail } from 'lucide-react';
+import { API_ENDPOINTS } from '../../config/api';
 
 /**
  * Admin Login Page
@@ -18,6 +19,11 @@ export default function AdminLogin() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +31,7 @@ export default function AdminLogin() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/admin/login', {
+      const response = await fetch(API_ENDPOINTS.adminLogin, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,8 +43,10 @@ export default function AdminLogin() {
 
       if (response.ok) {
         // Store token
-        localStorage.setItem('adminToken', data.token);
-        localStorage.setItem('adminData', JSON.stringify(data.admin));
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('adminToken', data.token);
+          localStorage.setItem('adminData', JSON.stringify(data.admin));
+        }
 
         // Redirect to dashboard
         router.push('/admin');
@@ -46,12 +54,16 @@ export default function AdminLogin() {
         setError(data.error || 'Login failed');
       }
     } catch (error) {
-      setError('Network error. Please try again.');
+      setError('Network error. Please check your backend is running.');
       console.error('Login error:', error);
     } finally {
       setLoading(false);
     }
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <>
