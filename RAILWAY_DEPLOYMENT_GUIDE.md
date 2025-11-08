@@ -146,7 +146,7 @@ In Railway dashboard:
 
 #### 4. Test a Real Endpoint
 ```bash
-curl https://YOUR_RAILWAY_URL/api/cars
+curl https://fusioncars-production.up.railway.app
 ```
 
 Should return a JSON array (even if empty).
